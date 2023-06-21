@@ -23,5 +23,6 @@ public class ClienteModel {
 	String nome;
 	String sobrenome;
 	String cpf;
+	String data;
 
 }
