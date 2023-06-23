@@ -7,5 +7,5 @@ import com.br.model.ClienteModel;
 
 @Repository
 public interface ClienteRepository extends CrudRepository<ClienteModel, Long>{
-
+	
 }

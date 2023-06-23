@@ -1,5 +1,7 @@
 package com.br.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +26,8 @@ public class ClienteService {
 	@Autowired
 	ClienteRepository repository;
 
-	public Iterable<ClienteModel> findClientes() {
-		return repository.findAll();
+	public List<ClienteModel> findClientes() {
+		return (List<ClienteModel>) repository.findAll();
 	}
 
 	public ClienteModel findClienteId(Long id, ClienteModel clienteModel) {
