@@ -28,4 +28,24 @@ public class EstudoService {
 		}
 		return nomes;
 	}
+
+	public List<String> buscaCpf() {
+		List<String> cpf = new ArrayList<>();
+		List<ClienteModel> clientes = service.findClientes();
+		for (ClienteModel client : clientes) {
+			cpf.add(client.getCpf());
+		}
+		return cpf;
+	}
+
+	public List<String> registrosNumerados() {
+		List<String> registro = new ArrayList<>();
+		List<ClienteModel> cliente = service.findClientes();
+		
+			for (int i = 0; i < cliente.size(); i++) {
+				registro.add(i +  " - " + cliente.get(i).getNome() + " " + cliente.get(i).getSobrenome());
+			}
+			
+		return registro;
+	}
 }

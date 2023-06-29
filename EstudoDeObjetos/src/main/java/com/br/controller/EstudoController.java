@@ -1,5 +1,7 @@
 package com.br.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -7,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.br.model.ClienteModel;
 import com.br.model.ResponseModel;
 import com.br.repository.ClienteRepository;
 import com.br.service.EstudoService;
@@ -34,6 +38,14 @@ public class EstudoController {
     	response.setMessage(serviceEstudo.buscarNomes().toString());
     	return ResponseEntity.status(HttpStatus.OK).body(serviceEstudo.buscarNomes());
     }  
+    
+    @GetMapping("/BuscaCpfs")
+    @ApiOperation(
+    		value = "Busca cpf cadastrado. (Não formatado).",
+    		notes= "Retorna registros de cpf cadastrados no banco de dados.")
+    public List<String> buscaTotosCpfCadastrado() {
+    	return serviceEstudo.buscaCpf();
+    }
     
     @ApiOperation (
     		value = "Busca nome cadastrado.",
@@ -72,6 +84,14 @@ public class EstudoController {
     @GetMapping("/buscarNomesPaginados")
     public ResponseEntity<?> BuscarClientesPaginados(@ApiIgnore ResponseModel response, @ApiIgnore Pageable page) {
     	return ResponseEntity.status(HttpStatus.OK).body(repository.findAll(page));
-    }   
+    }
+    
+    @ApiOperation(
+    		value = "Busca registro cadastrado(Numerados)",
+    		notes = "Retorna registros no banco de dados numerados.")
+    @GetMapping("/buscarRegistroNumerado")
+    public ResponseEntity<?> BuscarClientesNumerados(@ApiIgnore ResponseModel response, @ApiIgnore ClienteModel clienteModel) {
+    	return ResponseEntity.status(HttpStatus.OK).body(serviceEstudo.registrosNumerados());
+    } 
 }
 
