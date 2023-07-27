@@ -1,6 +1,8 @@
 package com.br.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -93,5 +95,56 @@ public class EstudoController {
     public ResponseEntity<?> BuscarClientesNumerados(@ApiIgnore ResponseModel response, @ApiIgnore ClienteModel clienteModel) {
     	return ResponseEntity.status(HttpStatus.OK).body(serviceEstudo.registrosNumerados());
     } 
+    
+    @GetMapping("/OrdemDeInsercao")
+    @ApiOperation(
+    		value = "Odenacao Set. (Ordem de inserção).",
+    		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
+    public Set<ClienteModel> ordemDeInsercao() {
+    	return serviceEstudo.ordenadorOrdemDeInsercao();
+    }
+    
+    @GetMapping("/OrdemAleatoria")
+    @ApiOperation(
+    		value = "Odenacao Set. (Ordem Aleatoria).",
+    		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
+    public Set<ClienteModel> ordemAleatoria() {
+    	return serviceEstudo.ordemAleatoria();
+    }
+    
+    @GetMapping("/OrdemNaturalPorNome")
+    @ApiOperation(
+    		value = "Odenacao Set. (Ordem Natural nomes).",
+    		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
+    public Set<ClienteModel> ordemNaturalNome() {
+    	return serviceEstudo.ordemNaturalNome();
+    }
+    
+    @GetMapping("/OrdemNaturalPorSobrenome")
+    @ApiOperation(
+    		value = "Odenacao Set. (Ordem Natural sobrenome).",
+    		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
+    public Set<ClienteModel> ordemNaturalSobrenome() {
+    	return serviceEstudo.ordemNaturalSobrenome();
+    }
+    
+    @GetMapping("/OrdenacaoPorMapId")
+    @ApiOperation(
+    		value = "Odenacao Map. (Por Id).",
+    		notes= "Ordenação Map.")
+    public Map<String, ClienteModel> ordenacaoPorId() {
+    	return serviceEstudo.ordenacaoPorId();
+    }
+    
+    @GetMapping("/OrdenacaoMapAleatoria")
+    @ApiOperation(
+    		value = "Odenacao Map. (Por Aleatoria).",
+    		notes= "Ordenação Map.")
+    public Map<Long, ClienteModel> ordenacaaMapAleatoria() {
+    	return serviceEstudo.ordenacaoAleatoriaMap();
+    }
+    
+    
 }
+
 
