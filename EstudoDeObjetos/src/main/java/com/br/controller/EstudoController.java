@@ -2,6 +2,7 @@ package com.br.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -128,20 +129,36 @@ public class EstudoController {
     	return serviceEstudo.ordemNaturalSobrenome();
     }
     
-    @GetMapping("/OrdenacaoPorMapId")
+    @GetMapping("/OrdenacaoPorSetId")
     @ApiOperation(
-    		value = "Odenacao Map. (Por Id).",
-    		notes= "Ordenação Map.")
-    public Map<String, ClienteModel> ordenacaoPorId() {
+    		value = "Odenacao Set. (Por Id).",
+    		notes= "Ordenação Set.")
+    public Set<ClienteModel> ordenacaoPorIdSet() {
     	return serviceEstudo.ordenacaoPorId();
     }
     
     @GetMapping("/OrdenacaoMapAleatoria")
     @ApiOperation(
-    		value = "Odenacao Map. (Por Aleatoria).",
-    		notes= "Ordenação Map.")
-    public Map<Long, ClienteModel> ordenacaaMapAleatoria() {
-    	return serviceEstudo.ordenacaoAleatoriaMap();
+    		value = "Odenacao Set. (Ordem Aleatoria).",
+    		notes= "Ordenação Set.")
+    public Set<ClienteModel> ordenacaaMapAleatoria() {
+    	return serviceEstudo.ordenacaoAleatoriaSet();
+    }
+    
+    @GetMapping("/SomaId")
+    @ApiOperation(
+    		value = "Soma id. (Soma os id cadastrador).",
+    		notes= "Somador id.")
+    public Double contadorID() {
+    	return serviceEstudo.SomaId();
+    }
+    
+    @GetMapping("/OrdenacaoSetPorNome")
+    @ApiOperation(
+    		value = "Odenacao Set. (Por Nome).",
+    		notes= "Ordenação Set.")
+    public Set<ClienteModel> ordenacaaMapNome() {
+    	return serviceEstudo.ordenacaoPorNome();
     }
     
     

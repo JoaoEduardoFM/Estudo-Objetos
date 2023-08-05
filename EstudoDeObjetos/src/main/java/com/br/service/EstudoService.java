@@ -2,13 +2,10 @@ package com.br.service;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,37 +92,49 @@ public class EstudoService {
 	}
 	
 	public Set<ClienteModel> ordemNaturalSobrenome(){
-		Set<ClienteModel> ordenador = new TreeSet<>(new ComparatorSobrenome());
+		Set<ClienteModel> comparador = new TreeSet<>(Comparator.comparing(t -> t.getSobrenome()));
+		Set<ClienteModel> set = new TreeSet<>(service.findClientes());
+		comparador.addAll(set);
+		
+		return comparador;
+		
+	}
+	
+	public Set<ClienteModel> ordenacaoPorId(){
+		List<ClienteModel> cliente = service.findClientes();
+		Set<ClienteModel> comparador = new TreeSet<>(Comparator.comparing(t -> t.getId()));
+		comparador.addAll(cliente);
+			return comparador;
+	}
+	
+	public Set<ClienteModel> ordenacaoAleatoriaSet(){
+		Set<ClienteModel> ordenador = new TreeSet<>(service.findClientes());
 		List<ClienteModel> clientes = service.findClientes();
 		ordenador.addAll(clientes);
+
 		for (ClienteModel clienteModel : ordenador) {
 			clienteModel.getId();
-			clienteModel.getCpf();
-			clienteModel.getData();
-			clienteModel.getNome();
-			clienteModel.getSobrenome();
-		}		
+		}
 		return ordenador;
 		
 	}
 	
-	public Map<String, ClienteModel> ordenacaoPorId(){
-		List<ClienteModel> cliente = service.findClientes();
-		Map<String, ClienteModel> ordenadorId = new TreeMap<>();
-			for (int i = 0; i < cliente.size(); i++) {				
-				ordenadorId.put(cliente.get(i).getId().toString(), cliente.get(i));
-			}
-			return ordenadorId;
+	public Set<ClienteModel> ordenacaoPorNome() {
+		Set<ClienteModel> ordenador1 = new TreeSet<>(service.findClientes());
+		Set<ClienteModel> ordenador = new TreeSet<>(Comparator.comparing(t -> t.getNome()));
+		ordenador.addAll(ordenador1);
+		for (ClienteModel clienteModel : ordenador) {
+			clienteModel.getNome();
+		}
+		return ordenador;
 	}
 	
-	public Map<Long, ClienteModel> ordenacaoAleatoriaMap(){ // a fazer
-		List<ClienteModel> cliente = service.findClientes();
-		Map<Long, ClienteModel> ordenadorId = new HashMap<>();
-		for (Map.Entry<Long, ClienteModel> clienteModel : ordenadorId.entrySet()) {
-			ordenadorId.get(ordenadorId);
-		}
-		return ordenadorId;
-		
+	public Double SomaId() {
+		Set<ClienteModel> contador = new TreeSet<>();
+		Set<ClienteModel> ordenador = new TreeSet<>(service.findClientes());
+		contador.addAll(ordenador);
+		double soma = contador.stream().mapToDouble(value -> value.getId()).sum();
+		return soma;
 	}
 	
 	class ComparatorSobrenome implements Comparator<ClienteModel>{
