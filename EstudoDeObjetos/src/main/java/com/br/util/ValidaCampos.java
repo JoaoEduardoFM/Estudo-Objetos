@@ -8,7 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.br.model.ClienteModel;
+import com.br.model.entity.ClienteModel;
 import com.br.repository.ClienteRepository;
 import com.br.service.ClienteService;
  

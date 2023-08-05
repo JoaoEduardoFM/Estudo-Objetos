@@ -11,7 +11,7 @@ import java.util.TreeSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.br.model.ClienteModel;
+import com.br.model.entity.ClienteModel;
 import com.br.repository.ClienteRepository;
 
 @Service

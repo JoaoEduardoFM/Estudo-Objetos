@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.br.model.ClienteModel;
-import com.br.model.ResponseModel;
-import com.br.model.ResponseModel.messageType;
+import com.br.model.entity.ClienteModel;
+import com.br.model.response.ResponseModel;
+import com.br.model.response.ResponseModel.messageType;
 import com.br.repository.ClienteRepository;
 import com.br.util.ValidaCampos;
 

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.model.ClienteModel;
-import com.br.model.ResponseModel;
+import com.br.model.entity.ClienteModel;
+import com.br.model.response.ResponseModel;
 import com.br.repository.ClienteRepository;
 import com.br.service.EstudoService;
 import io.swagger.annotations.Api;

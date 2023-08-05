@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.model.ClienteModel;
-import com.br.model.ResponseModel;
+import com.br.model.entity.ClienteModel;
+import com.br.model.response.ResponseModel;
 import com.br.service.ClienteService;
 
 import io.swagger.annotations.Api;

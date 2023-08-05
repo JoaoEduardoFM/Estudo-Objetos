@@ -1,4 +1,4 @@
-package com.br.model;
+package com.br.model.response;
 
 import lombok.Getter;
 import lombok.Setter;

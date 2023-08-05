@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.br.model.ClienteModel;
+import com.br.model.entity.ClienteModel;
 
 public interface ClienteRepository extends JpaRepository<ClienteModel, Long> {
 

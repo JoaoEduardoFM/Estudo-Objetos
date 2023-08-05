@@ -1,6 +1,6 @@
 package com.br.util;
 
-import com.br.model.ClienteModel;
+import com.br.model.entity.ClienteModel;
 
 public class ComparadorCliente implements Comparable<ClienteModel>{
 

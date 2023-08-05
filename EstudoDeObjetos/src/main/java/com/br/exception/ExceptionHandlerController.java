@@ -9,7 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.br.model.ResponseModel;
+import com.br.model.response.ResponseModel;
 
 @RestControllerAdvice
 public class ExceptionHandlerController {
