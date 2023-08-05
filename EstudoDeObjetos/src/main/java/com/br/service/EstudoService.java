@@ -136,17 +136,4 @@ public class EstudoService {
 		double soma = contador.stream().mapToDouble(value -> value.getId()).sum();
 		return soma;
 	}
-	
-	class ComparatorSobrenome implements Comparator<ClienteModel>{
-
-	    @Override
-	    public int compare(ClienteModel s1, ClienteModel s2) {
-
-	        int sobrenome = s1.getSobrenome().compareTo(s2.getSobrenome());
-	        if (sobrenome != 0) return sobrenome;   
-	        
-	        return s1.getSobrenome().compareTo(s2.getSobrenome());
-
-	}
-	}
 }
