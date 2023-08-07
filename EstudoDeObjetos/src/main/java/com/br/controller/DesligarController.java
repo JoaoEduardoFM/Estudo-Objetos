@@ -1,5 +1,6 @@
 package com.br.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +16,8 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "Desligar serviço", tags = "Desligar", description = " Desligar serviço.")
 public class DesligarController {
 
-	 private final ConfigurableWebApplicationContext context;
-
-	    public DesligarController(ConfigurableWebApplicationContext context) {
-	        this.context = context;
-	    }
+	@Autowired
+	ConfigurableWebApplicationContext context;
 
 	    @ApiOperation (
 	    		value = "Fechar aplicação",
