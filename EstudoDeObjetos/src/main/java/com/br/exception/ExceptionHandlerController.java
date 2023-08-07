@@ -23,11 +23,8 @@ public class ExceptionHandlerController {
     	ResponseModel response = new ResponseModel();
 		List<String> erros = ex.getBindingResult().getFieldErrors().stream().map(FieldError::getDefaultMessage)
 				.collect(Collectors.toList());	
-		
-		for (String listaErro : erros) {
-			response.setMessage(listaErro);
-		}
-
+		erros.forEach(t -> response.setMessage(erros.toString()));
+		erros.addAll(erros);
 		return new ResponseEntity<>(erros, HttpStatus.BAD_REQUEST);		
     }
 }

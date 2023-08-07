@@ -4,6 +4,7 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
+    port: 3000
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     properties:

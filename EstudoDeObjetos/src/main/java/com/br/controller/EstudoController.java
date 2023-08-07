@@ -1,8 +1,7 @@
 package com.br.controller;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.OptionalDouble;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,7 @@ import com.br.model.entity.ClienteModel;
 import com.br.model.response.ResponseModel;
 import com.br.repository.ClienteRepository;
 import com.br.service.EstudoService;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
@@ -24,7 +24,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping("/Estudo")
-@Api(value = "Endpoints para estudos", tags = "Estudos", description = "teste")
+@Api(value = "Endpoints para estudos", tags = "Estudos", description = "Estudos relacionados ao java.")
 public class EstudoController {
 
     @Autowired
@@ -101,7 +101,7 @@ public class EstudoController {
     @ApiOperation(
     		value = "Odenacao Set. (Ordem de inserção).",
     		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
-    public Set<ClienteModel> ordemDeInsercao() {
+    public Set<ClienteModel> OrdemDeInsercao() {
     	return serviceEstudo.ordenadorOrdemDeInsercao();
     }
     
@@ -109,7 +109,7 @@ public class EstudoController {
     @ApiOperation(
     		value = "Odenacao Set. (Ordem Aleatoria).",
     		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
-    public Set<ClienteModel> ordemAleatoria() {
+    public Set<ClienteModel> OrdemAleatoria() {
     	return serviceEstudo.ordemAleatoria();
     }
     
@@ -117,7 +117,7 @@ public class EstudoController {
     @ApiOperation(
     		value = "Odenacao Set. (Ordem Natural nomes).",
     		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
-    public Set<ClienteModel> ordemNaturalNome() {
+    public Set<ClienteModel> OrdemNaturalNome() {
     	return serviceEstudo.ordemNaturalNome();
     }
     
@@ -125,7 +125,7 @@ public class EstudoController {
     @ApiOperation(
     		value = "Odenacao Set. (Ordem Natural sobrenome).",
     		notes= "Ordenação Set. Não permite Id repetido e não contem indices.")
-    public Set<ClienteModel> ordemNaturalSobrenome() {
+    public Set<ClienteModel> OrdemNaturalSobrenome() {
     	return serviceEstudo.ordemNaturalSobrenome();
     }
     
@@ -133,7 +133,7 @@ public class EstudoController {
     @ApiOperation(
     		value = "Odenacao Set. (Por Id).",
     		notes= "Ordenação Set.")
-    public Set<ClienteModel> ordenacaoPorIdSet() {
+    public Set<ClienteModel> OdenacaoPorIdSet() {
     	return serviceEstudo.ordenacaoPorId();
     }
     
@@ -141,25 +141,34 @@ public class EstudoController {
     @ApiOperation(
     		value = "Odenacao Set. (Ordem Aleatoria).",
     		notes= "Ordenação Set.")
-    public Set<ClienteModel> ordenacaaMapAleatoria() {
+    public Set<ClienteModel> OrdenacaaMapAleatoria() {
     	return serviceEstudo.ordenacaoAleatoriaSet();
-    }
-    
-    @GetMapping("/SomaId")
-    @ApiOperation(
-    		value = "Soma id. (Soma os id cadastrador).",
-    		notes= "Somador id.")
-    public Double contadorID() {
-    	return serviceEstudo.SomaId();
     }
     
     @GetMapping("/OrdenacaoSetPorNome")
     @ApiOperation(
     		value = "Odenacao Set. (Por Nome).",
     		notes= "Ordenação Set.")
-    public Set<ClienteModel> ordenacaaMapNome() {
+    public Set<ClienteModel> OrdenacaaMapNome() {
     	return serviceEstudo.ordenacaoPorNome();
     }
+    
+    @GetMapping("/MediaId")
+    @ApiOperation(
+    		value = "Média id. (Media dos ids cadastrados).",
+    		notes= "Média id.")
+    public OptionalDouble MediaID() {
+    	return serviceEstudo.mediaId();
+    }
+    
+    @GetMapping("/SomaId")
+    @ApiOperation(
+    		value = "Soma id. (Soma dos ids cadastrados).",
+    		notes= "Somador id.")
+    public Double SomarID() {
+    	return serviceEstudo.SomaId();
+    }
+    
     
     
 }

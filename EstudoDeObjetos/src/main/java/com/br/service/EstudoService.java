@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -135,5 +136,13 @@ public class EstudoService {
 		contador.addAll(ordenador);
 		double soma = contador.stream().mapToDouble(value -> value.getId()).sum();
 		return soma;
+	}
+	
+	public OptionalDouble mediaId() {
+		Set<ClienteModel> contador = new TreeSet<>();
+		Set<ClienteModel> ordenador = new TreeSet<>(service.findClientes());
+		contador.addAll(ordenador);
+		OptionalDouble media = contador.stream().mapToDouble(value -> value.getId()).average();
+		return media;
 	}
 }

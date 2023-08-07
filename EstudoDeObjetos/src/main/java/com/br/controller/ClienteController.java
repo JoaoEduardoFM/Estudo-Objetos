@@ -1,11 +1,14 @@
 package com.br.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +22,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping("/Cliente")
-@Api(value = "Gerenciamento de clientes.", tags = "Clientes")
+@Api(value = "Gerenciamento de clientes.", tags = "Clientes", description = " CRUD api Cliente.")
 public class ClienteController {
 
 	@Autowired
@@ -45,7 +48,7 @@ public class ClienteController {
 			value = "Cadastra Cliente.", 
 			notes = "Cadastra um novo cliente")
 	@PostMapping(name = "/CadastraCliente")
-	private ResponseEntity<?> cadastraCliente(ClienteModel cliente, @ApiIgnore ResponseModel responseModel) {
+	private ResponseEntity<?> cadastraCliente(@RequestBody @Valid ClienteModel cliente, @ApiIgnore ResponseModel responseModel) {
 		return service.createCliente(cliente, responseModel);
 	}
 
@@ -53,7 +56,7 @@ public class ClienteController {
 			value = "Atualiza Cliente.", 
 			notes = "Atualiza um cliente baseado no id")
 	@PutMapping(name = "/AtualizaCliente{/id}")
-	private ResponseEntity<?> atualizaCliente(ClienteModel cliente, @ApiIgnore ResponseModel responseModel) {
+	private ResponseEntity<?> atualizaCliente(@RequestBody @Valid ClienteModel cliente, @ApiIgnore ResponseModel responseModel) {
 		return service.updatePorId(cliente, responseModel);
 	}
 
