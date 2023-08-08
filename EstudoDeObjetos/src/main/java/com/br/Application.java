@@ -27,7 +27,8 @@ public class Application {
 	
 		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
 			SpringApplication.run(Application.class, args);
-			Desktop.getDesktop().browse(new URI(swaggerUrl));		
+			Desktop.getDesktop().browse(new URI(swaggerUrl));
+			
 		}
 	}
 }
