@@ -22,7 +22,7 @@ public class DesligarController {
 	    @ApiOperation (
 	    		value = "Fechar aplicação",
 	    		notes = "Serviço que fecha a aplicação.")
-	    @GetMapping("/desligar")
+	    @GetMapping()
 	    public void shutdown() {
 	        TaskExecutor taskExecutor = new SimpleAsyncTaskExecutor();
 	        taskExecutor.execute(() -> {
