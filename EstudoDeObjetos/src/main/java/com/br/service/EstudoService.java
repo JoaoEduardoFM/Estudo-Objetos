@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.br.model.entity.ClienteModel;
 import com.br.repository.ClienteRepository;
+import com.br.util.ValidaCampos;
 
 @Service
 public class EstudoService {
@@ -41,7 +42,7 @@ public class EstudoService {
 		}
 		return cpf;
 	}
-
+	
 	public List<String> registrosNumerados() {
 		List<String> registro = new ArrayList<>();
 		List<ClienteModel> cliente = service.findClientes();

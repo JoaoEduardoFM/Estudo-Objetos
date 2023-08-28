@@ -21,8 +21,6 @@ public class ValidaCampos {
 	
 	@Autowired
 	ClienteRepository repository;
-
-	
 	
 	/**
 	 * @apiNote Validar se a data é válida
@@ -39,6 +37,11 @@ public class ValidaCampos {
 	      }   
 	   }
 	
+	/**
+	 * @apiNote Valida se o id existe
+	 * @param Optional
+	 * @return boolean
+	 */
 	public Boolean validaSeExisteId(Long id) {
 		Optional<ClienteModel> buscaPorID = repository.findById(id);
 		try {
